@@ -1,4 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url('app/img/background-pattern.png');
   background-repeat: repeat;
+  margin: 0;
+  color: #fff;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+}
+
+input {
+  border-radius: 3px;
+  width: 100%;
+  border: none;
+  padding: 12px 12px;
+  font-size: 1em;
+  color: #555;
+  display: block;
+  border: 1px solid #C1C1C1;
+}
+
+button {
+  background-color: #5CB85C;
+  border: 1px solid #51AC51;
+  padding: 6px 12px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8em;
+  vertical-align: middle;
+  text-align: center;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #4CA34C;
+}
+
+.navbar {
+  height: 80px;
+  background-color: #3DA7C1;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .zipcode-container {
+  flex-direction: row;
+  margin-top: -5px;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+}
+
+.zipcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  font-size: 3em;
+  font-weight: 100;
 }
