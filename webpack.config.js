@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var webpack = require('webpack');
 
 const config = {
@@ -29,13 +30,17 @@ const config = {
 }
 
 if(process.env.NODE_ENV === 'production') {
+  console.log('***PRODUCTION CONFIG***');
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new wepack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new CopyWebpackPlugin([
+      { from: './_redirects', to: ''}
+    ])
   );
 }
 

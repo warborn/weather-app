@@ -3,8 +3,8 @@
 }
 
 body {
+  background-color: #64D4F0;
   background-image: url('/app/img/background-pattern.png');
-  background color: #64D4F0;
   background-repeat: repeat;
   margin: 0;
   color: #fff;
