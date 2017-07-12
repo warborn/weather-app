@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getForecastDetails } from '../utils/api';
 import queryString from 'query-string'
-import { getForecasts } from '../utils/api';
+import { getForecast } from '../utils/api';
 import ForecastGrid from './ForecastGrid';
 
 class Forecast extends Component {
@@ -9,31 +9,59 @@ class Forecast extends Component {
     super(props);
 
     this.state = {
-      zipcode: null,
-      forecast: null
+      forecast: null,
+      loading: true
     }
+
+    this.handleDayItemClick = this.handleDayItemClick.bind(this);
+    this.makeRequest = this.makeRequest.bind(this);
   }
 
-  async componentDidMount() {
-    const { city } = queryString.parse(this.props.location.search);
-    const forecast = await getForecasts(city);
+  componentDidMount() {
+    this.city = queryString.parse(this.props.location.search).city;
+    this.makeRequest(this.city);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.city = queryString.parse(nextProps.location.search).city;
+    this.makeRequest(this.city);
+  }
+
+  async makeRequest(city) {
+    console.log(city);
     this.setState(() => {
       return {
-        forecast
+        loading: true,
+      }
+    });
+
+    const forecast = await getForecast(city);
+    this.setState(() => {
+      return {
+        forecast,
+        loading: false
       }
     });
   }
 
+  handleDayItemClick(day) {
+    this.props.history.push({
+      pathname: `/details/${this.city}`,
+      state: day
+    });
+  }
+
   render() {
-    const { forecast } = this.state;
+    const { loading, forecast } = this.state;
     return (
       <div>
-        {!forecast 
-          ? <p>Loading...</p> 
+        {loading 
+          ? <p className='forecast-header'>Loading...</p> 
           : <div>
               <h1 className='forecast-header'>{forecast.city.name}, {forecast.city.country}</h1>
               <ForecastGrid 
-                forecasts={forecast.list}
+                onDayItemClick={this.handleDayItemClick}
+                list={forecast.list}
               />
             </div>}
       </div>

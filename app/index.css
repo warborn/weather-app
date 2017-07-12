@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url('app/img/background-pattern.png');
+  background-image: url('/app/img/background-pattern.png');
   background-repeat: repeat;
   margin: 0;
   color: #fff;
@@ -37,16 +37,21 @@ button:hover {
   background-color: #4CA34C;
 }
 
+.title {
+  color: #fff;
+  text-decoration: none;
+}
+
 .navbar {
   height: 80px;
-  background-color: #3DA7C1;
+  background-color: #46B4CF;
   color: #fff;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.navbar .zipcode-container {
+.navbar .city-container {
   flex-direction: row;
   margin-top: -5px;
 }
@@ -68,7 +73,7 @@ button:hover {
   font-weight: 100;
 }
 
-.zipcode-container {
+.city-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,4 +112,12 @@ button:hover {
 .subheader {
   font-size: 1.9em;
   font-weight: 100;
+}
+
+.description-container {
+  font-size: 2.2em;
+  font-weight: 100;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }

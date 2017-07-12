@@ -7,7 +7,7 @@ function DayItem(props) {
   const icon = props.details.weather[0].icon;
 
   return (
-    <div className='day-container'>
+    <div className='day-container' onClick={props.onClick}>
       <img 
         className='weather' src={`../app/img/weather-icons/${icon}.svg`} 
         alt='weather' />

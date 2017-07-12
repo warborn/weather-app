@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
 import Forecast from './Forecast';
+import Detail from './Detail';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Header />
+          <Route component={Header} />
           <div className='container'>
             <Switch>
-              <Route exact path='/' component={Home} />
+              <Route exact path='/' component={Home} />} />
               <Route path='/forecast' component={Forecast} />
+              <Route path='/details/:city' component={Detail} />
             </Switch>
           </div>
         </div>

@@ -1,14 +1,14 @@
 import React from 'react';
-import ZipCode from './ZipCode';
+import CityInput from './CityInput';
 
 function Home(props) {
   return (
     <div className='home-container'>
       <h2 className='header'>Enter a City and State</h2>
-      <ZipCode onSubmit={(zipcode) => {
+      <CityInput onSubmit={(city) => {
         props.history.push({
           pathname: `/forecast`,
-          search: `?city=${zipcode}`
+          search: `?city=${city}`
         });
       }}/>
     </div>

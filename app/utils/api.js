@@ -13,7 +13,7 @@ export async function getForecastDetails(zipcode) {
   return response.data;
 }
 
-export async function getForecasts(zipcode) {
+export async function getForecast(zipcode) {
   const forecastsURL = 
     window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${zipcode}&type=accurate&APPID=${API_KEY}&cnt=5`);
   try {

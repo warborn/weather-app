@@ -1,12 +1,12 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 
-class ZipCode extends Component {
+class CityInput extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      zipcode: ''
+      city: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,34 +17,44 @@ class ZipCode extends Component {
     const value = event.target.value;
     this.setState(() => {
       return {
-        zipcode: value
+        city: value
       } 
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const { zipcode } = this.state;
-    this.props.onSubmit(zipcode);
+    
+    let { city } = this.state;
+    if(city === '') {
+      city = 'St. George, Utha';
+    }
+
+    this.props.onSubmit(city);
+    this.setState(() => {
+      return {
+        city: ''
+      }
+    })
   }
 
   render() {
     return (
-      <form className='zipcode-container' onSubmit={this.handleSubmit}>
-        <input type="text" value={this.state.zipcode} onChange={this.handleChange} placeholder={this.props.placeholder}/>
+      <form className='city-container' onSubmit={this.handleSubmit}>
+        <input type="text" value={this.state.city} onChange={this.handleChange} placeholder={this.props.placeholder}/>
         <button>Get Weather</button>
       </form>
     )
   }
 }
 
-ZipCode.propTypes = {
+CityInput.propTypes = {
   placeholder: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
-ZipCode.defaultProps = {
+CityInput.defaultProps = {
   placeholder: 'St. George, Utha'
 }
 
-export default ZipCode
+export default CityInput

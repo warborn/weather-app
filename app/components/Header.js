@@ -1,11 +1,23 @@
 import React from 'react';
-import ZipCode from './ZipCode';
+import { Link } from 'react-router-dom';
+import CityInput from './CityInput';
 
-function Header() {
+function Header(props) {
   return (
     <header className='navbar'>
-      <h1>Weather App</h1>
-      <ZipCode />
+      <h1>
+        <Link
+          className='title'
+          to={{pathname: '/'}}>
+            Weather App
+        </Link>
+      </h1>
+      <CityInput onSubmit={(city) => {
+        props.history.push({
+          pathname: `/forecast`,
+          search: `?city=${city}`
+        });
+      }}/>
     </header>
   )
 }
