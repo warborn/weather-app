@@ -102,7 +102,12 @@ button:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 35px;
+  padding: 30px 20px;
+}
+
+.forecast-container .day-container:hover {
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.2);
 }
 
 .weather {
@@ -112,6 +117,7 @@ button:hover {
 .subheader {
   font-size: 1.9em;
   font-weight: 100;
+  margin: 0;
 }
 
 .description-container {
@@ -120,4 +126,12 @@ button:hover {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+}
+
+/* media queries */
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 768px) {
+  .navbar .city-container {
+    display: none;
+  }
 }
