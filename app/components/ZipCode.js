@@ -1,7 +1,5 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import { getForecastDetails } from '../utils/api';
-import { getForecasts } from '../utils/api';
 
 class ZipCode extends Component {
   constructor(props) {
@@ -26,9 +24,8 @@ class ZipCode extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.zipcode);
-    // getForecastDetails(this.state.zipcode);
-    getForecasts(this.state.zipcode);
+    const { zipcode } = this.state;
+    this.props.onSubmit(zipcode);
   }
 
   render() {
@@ -42,7 +39,8 @@ class ZipCode extends Component {
 }
 
 ZipCode.propTypes = {
-  placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
 
 ZipCode.defaultProps = {

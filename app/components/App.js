@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header';
-import ZipCode from './ZipCode';
+import Home from './Home';
+import Forecast from './Forecast';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <div className='container'>
-          <div className='home-container'>
-            <h2 className='header'>Enter a City and State</h2>
-            <ZipCode />
+      <Router>
+        <div>
+          <Header />
+          <div className='container'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/forecast' component={Forecast} />
+            </Switch>
           </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }

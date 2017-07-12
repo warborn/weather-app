@@ -79,3 +79,32 @@ button:hover {
   font-size: 3em;
   font-weight: 100;
 }
+
+.forecast-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.forecast-header {
+  font-size: 4em;
+  font-weight: 100;
+  text-align: center;
+}
+
+.day-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 35px;
+}
+
+.weather {
+  height: 130px;
+}
+
+.subheader {
+  font-size: 1.9em;
+  font-weight: 100;
+}
