@@ -39,7 +39,9 @@ if(process.env.NODE_ENV === 'production') {
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new CopyWebpackPlugin([
-      { from: './_redirects', to: ''}
+      { from: './_redirects', to: ''},
+      { from: './app/img/*', to: ''},
+      { from: './app/img/**/*', to: ''}
     ])
   );
 }
