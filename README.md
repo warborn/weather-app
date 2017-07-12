@@ -34,7 +34,7 @@ $ cd weather-app
 $ npm install
 ```
 
-Try it on your local environment, execute the following command and wait for webpack to finish and go to http://localhost:8081/
+Try it on your local environment, execute the following command and wait for webpack to finish and go to http://localhost:8080/
 ```sh
 $ npm run start
 ```
